@@ -1,0 +1,19 @@
+
+<h1>Let's calcuate your payment</h1>
+<hr>
+
+<form action="/payment/submit">
+  <div class="form-group">
+    <label for="r">Input Interest Rate in Annual Basis Points</label>
+    <input type="number" name="r" class="form-control" id="r" placeholder="e.g. 300">
+  </div>
+  <div class="form-group">
+    <label for="n">Input Number of Years</label>
+    <input type="number" name="n" class="form-control" id="n" placeholder="e.g. 13">
+  </div>
+  <div class="form-group">
+    <label for="pv">Input Principal Value in Dollars</label>
+    <input type="number" name="pv" class="form-control" id="pv" placeholder="e.g. 1986">
+  </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+</form>
