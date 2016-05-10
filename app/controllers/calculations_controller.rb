@@ -36,14 +36,24 @@ class CalculationsController < ApplicationController
     # the calculator puts a number between those two
     render("random.html.erb")
   end
+
+
   def pmt
 
-    @apr=params[:apr]
-    @years=params[:years]
-    @princ=params[:princ]
+    @apr=params[:points].to_f
+    @years=params[:years].to_i
+    @princ=params[:principal].to_f
+
+    @display_i=@apr/100
+
+    @i=@apr/10000
+    @numer=@i*(1+@i)**(@years)
+    @denom=((1+@i)**(@years))-1
+    @PMT_factor=@numer/@denom
 
 
-
+    @m_pmt=@PMT_factor*@princ
+    render("payment.html.erb")
 
   end
 
