@@ -1,0 +1,2 @@
+<h3>Payment</h3>
+<p>A <%= params[:NUMBER_OF_YEARS]%> year loan of $<%= params[:PRINCIPAL_VALUE]%>, with an annual interest rate of <%= params[:INTEREST_RATE].to_f/100 %>%, requires a monthly payment of $<%= sprintf("%.2f",@result)%>.</p>
