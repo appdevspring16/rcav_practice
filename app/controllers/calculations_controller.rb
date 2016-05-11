@@ -12,7 +12,7 @@ class CalculationsController < ApplicationController
   def square_root
     #The square root of a particular NUMBER
     @number = params[:number].to_i
-    @square_root = Math.sqrt(@number)
+    @square_root = '%.2f' % Math.sqrt(@number).round(2)
   end
 
   def random
