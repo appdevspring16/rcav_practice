@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   get("/", { :controller => "calculations", :action => "instructions" })
 
-  get("/descriptive_statistics/new",     { :controller => "calculations", :action => "descriptive_statistics_form" })
-  get("/descriptive_statistics/results", { :controller => "calculations", :action => "descriptive_statistics" })
+#CREATE Square
+  get("/square/new",    { :controller => "calculations",    :action => "new_form"})
+  get("/create_square", { :controller => "calculations",    :action => "create_row" })
+
+#READ Square
+  get("/square/", {:controller => "calculations", :action => "index"})
+  get("/square/:number", { :controller => "calculations", :action => "show"})
 
 end

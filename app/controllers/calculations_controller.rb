@@ -3,12 +3,22 @@ class CalculationsController < ApplicationController
     render("instructions.html.erb")
   end
 
-  def descriptive_statistics
-      @number = params[:number].to_i
-      @square = @number**2
-      @square_root = Math.sqrt(@number)
+  def index
+    @number = params[:number].to_i
+  end
+
+  def show
+    @number = params[:number].to_i
+    @square = @number**2
+  end
+
+  def create_row
+    @number = params[:number].to_i
+    # @square = @number**2
+
+    redirect_to("/square/#{@number}")
+  end
 
 
-      render("descriptive_statistics.html.erb")
-    end
+
 end
