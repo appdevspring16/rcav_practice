@@ -21,4 +21,14 @@ class CalculationsController < ApplicationController
     @random = rand(@min..@max)
     render("random.html.erb")
   end
+
+  def payment
+    r = params[:int].to_f
+    @int = r/100
+    @nper = params[:nper].to_i
+    @prin = params[:prin].to_f
+    @payment = (@int*@prin*((1+@int)**@nper))/((1+@int)**@nper-1)
+    render("payment.html.erb")
+  end
+
 end
