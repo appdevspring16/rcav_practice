@@ -26,7 +26,14 @@ class CalculationsController < ApplicationController
 
   def payment
     @years = params[:number_of_years].to_i
+    months = @years * 12
     @apr = params[:interest_rate]
+    @apr = @apr.to_f / 100
+    rate = @apr / 12 / 100
+    @principal = params[:principal_value].to_i
+
+    @monthly_payment = (rate * @principal * ((1 + rate) ** months)) / (((1 + rate) ** months) - 1)
+
     render("payment.html.erb")
   end
 end
