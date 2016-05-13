@@ -8,4 +8,7 @@ Rails.application.routes.draw do
 # Random Number Page
     get("random/:min/:max", { :controller => "calculations", :action => "random_number" })
 
+# Mortgage Page
+    get("payment/:int/:period/:amount", { :controller => "calculations", :action => "loan_payment" })
+
 end

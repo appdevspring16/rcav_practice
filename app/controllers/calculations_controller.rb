@@ -4,14 +4,16 @@ class CalculationsController < ApplicationController
   end
 
   def loan_payment
-#  @apr = params[:annual_percentage_rate].to_f
-#  @years = params[:number_of_years].to_i
-#  @principal = params[:principal_value].to_f
+  @apr = params[:int].to_f
+  @years = params[:period].to_i
+  @principal = params[:amount].to_f
 
-#  rate = @apr / 100 / 12
-#  nper = @years * 12
+  monthly_rate = @apr / 100 / 12 / 100
+  nper = @years * 12
 
-#  @monthly_payment = (rate * @principal)/(1 - (1 + rate)**-nper)
+  @monthly_payment = (monthly_rate * @principal)/(1 - (1 + monthly_rate)**-nper)
+
+  render("loan_payment.html.erb")
 end
 
 def square_root
