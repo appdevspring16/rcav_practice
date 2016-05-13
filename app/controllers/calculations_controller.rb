@@ -11,7 +11,7 @@ class CalculationsController < ApplicationController
   def random_number
     @first_number = params[:first_number].to_i
     @second_number = params[:second_number].to_i
-    @random_number = rand(@first_number..@second_number).to_i
+    @random_number = rand(@first_number..@second_number)
   end
 
   def payment_calculator
@@ -19,7 +19,7 @@ class CalculationsController < ApplicationController
     @int = (@int_rate_bps/100)
     @loan_term_yrs = params[:loan_term_yrs].to_i
     @loan_amount = params[:loan_amount].to_f
-    @monthly_payment = (@int*@loan_amount*((1+@int)**@nper))/((1+@int)**@nper-1)
+    @monthly_payment = (@int*@loan_amount*((1+@int)**@loan_term_yrs))/((1+@int)**@loan_term_yrs-1)
   end
 
 end
