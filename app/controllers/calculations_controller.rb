@@ -9,4 +9,15 @@ class CalculationsController < ApplicationController
 
     render ("square_root.html.erb")
   end
+  def random
+
+    @min = params[:min_number]
+    @max = params[:max_number]
+    @min_number = @min.to_i
+    @max_number = @max.to_i
+    @random = rand(@max_number-@min_number) + 1
+
+    render ("random.html.erb")
+  end
+
 end
