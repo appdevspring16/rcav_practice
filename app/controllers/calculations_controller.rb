@@ -19,4 +19,18 @@ class CalculationsController < ApplicationController
     @random      = rand(@number1 + 1 .. @number2 - 1);
   end
 
+  def payment
+    @rate      = (params[:rate].to_i/100.0)
+    @year      = params[:year].to_i
+    @principal = params[:principal].to_i
+    # formula = p * r * (1 + r)^n / ((1 + r)^n - 1)
+    # monthly interest rate
+    @r = (@rate/12)/100;
+    # period in months
+    @n = @year * 12;
+    @one_plus_r_power_n = ( 1 + @r) ** @n;
+    @monthly_payment = ( @principal * @r * @one_plus_r_power_n) / (@one_plus_r_power_n - 1);
+    @payment = sprintf('%.2f', @monthly_payment)
+  end
+
 end

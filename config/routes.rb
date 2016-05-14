@@ -7,4 +7,6 @@ Rails.application.routes.draw do
 
   get("/random/:num1/:num2", { :controller => "calculations", :action => "random" })
 
+  get("/payment/:rate/:year/:principal", { :controller => "calculations", :action => "payment" })
+
 end
